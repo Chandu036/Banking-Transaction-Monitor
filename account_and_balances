@@ -1,0 +1,51 @@
+-----------------------------------------------------------
+1. List all accounts with their total balance
+"SELECT account_id, account_holder, total_balance FROM indian_account;"
+-----------------------------------------------------------
+2. Find top 10 accounts with the highest total balance
+"SELECT account_id, account_holder, total_balance 
+FROM indian_account 
+ORDER BY total_balance DESC 
+LIMIT 10;"
+------------------------------------------------------------
+3. Find average balance across all accounts
+"SELECT AVG(total_balance) AS average_balance FROM indian_account;"
+--------------------------------------------------------------
+4. Find number of accounts with a balance above ₹1,00,000
+"SELECT COUNT(*) AS rich_accounts 
+FROM indian_account 
+WHERE total_balance > 100000;"
+------------------------------------------------------------
+5. List accounts with zero or negative balance
+"SELECT * 
+FROM indian_account 
+WHERE total_balance <= 0;"
+---------------------------------------------------------------
+6. Find total balance held by city (descending order)
+"SELECT city, SUM(total_balance) AS total_city_balance 
+FROM indian_account 
+GROUP BY city 
+ORDER BY total_city_balance DESC;"
+-------------------------------------------------------
+7. Find highest balance holder in each cit
+"SELECT city, account_holder, MAX(total_balance) AS max_balance 
+FROM indian_account 
+GROUP BY city;"
+-----------------------------------------------------------
+8. Find accounts opened in the last 1 year with a balance above ₹50,000
+"SELECT * 
+FROM indian_account 
+WHERE created_at >= CURDATE() - INTERVAL 1 YEAR 
+  AND total_balance > 50000;"
+-----------------------------------------------------------
+9. Compare average balances by account type
+"SELECT account_type, AVG(total_balance) AS avg_balance 
+FROM indian_account 
+GROUP BY account_type;"
+---------------------------------------------
+10. Find accounts with the same balance (duplicate balances)
+"SELECT total_balance, COUNT(*) AS count 
+FROM indian_account 
+GROUP BY total_balance 
+HAVING COUNT(*) > 1;"
+--------------------------------------------------------
