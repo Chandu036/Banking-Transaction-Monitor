@@ -1,0 +1,15 @@
+Banking-Transaction-Monitor/
+├── README.md
+├── schema.sql
+├── sample_data/
+│   ├── accounts.csv
+│   └── transactions.csv
+├── queries/
+│   ├── suspicious_transactions.sql
+│   ├── total_balance_by_account.sql
+│   ├── daily_transaction_summary.sql
+│   ├── all_transactions.sql
+│   ├── account_details.sql
+│   ├── compliance_audit_log.sql
+│   └── analytics_reports.sql
+└── insights.md
